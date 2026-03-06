@@ -19,17 +19,17 @@ import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
-@Getter
 public class PostController {
 
     private final PostService postService;
 
     @GetMapping("/posts/write-form")
-    public String writeForm() {
+    public String writeForm(@ModelAttribute("form") WriteRequestForm form) {
         return "write";
     }
 
     @AllArgsConstructor
+    @Getter
     public static class WriteRequestForm {
         @Size(min=2, max=10, message = "3-제목은 2자 이상 10자 이하로 입력해주세요.")
         @NotBlank(message = "1-제목은 필수입니다.")
