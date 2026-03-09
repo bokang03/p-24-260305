@@ -5,6 +5,7 @@ import com.back.domin.post.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,6 +25,10 @@ public class PostService {
 
     public Optional<Post> findById(int id) {
         return postRepository.findById(id);
+    }
+
+    public List<Post> findAll() {
+        return postRepository.findAll();
     }
 
 }
