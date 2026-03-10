@@ -1,6 +1,6 @@
-package com.back.domin.post.entity;
+package com.back.domain.post.entity;
 
-import com.back.domin.post.commnet.entity.Comment;
+import com.back.domain.post.commnet.entity.Comment;
 import com.back.global.entity.BaseEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

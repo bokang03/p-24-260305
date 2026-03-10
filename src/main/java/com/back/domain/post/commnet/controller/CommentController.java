@@ -1,8 +1,8 @@
-package com.back.domin.post.commnet.controller;
+package com.back.domain.post.commnet.controller;
 
-import com.back.domin.post.commnet.entity.Comment;
-import com.back.domin.post.entity.Post;
-import com.back.domin.post.service.PostService;
+import com.back.domain.post.commnet.entity.Comment;
+import com.back.domain.post.entity.Post;
+import com.back.domain.post.service.PostService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -10,10 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -35,7 +32,7 @@ public class CommentController {
         return "redirect:/posts/%d".formatted(post.getId());
     }
 
-    @GetMapping("/posts/{postId}/comments/{commentId}/delete")
+    @DeleteMapping("/posts/{postId}/comments/{commentId}")
     @Transactional
     public String delete(@PathVariable int postId, @PathVariable int commentId) {
         Post post = postService.findById(postId).get();
